@@ -13,7 +13,7 @@ CONF_DIRECTION_DATAPOINT = "direction_datapoint"
 TuyaFan = tuya_ns.class_("TuyaFan", cg.Component, fan.Fan)
 
 CONFIG_SCHEMA = cv.All(
-    fan.FAN_SCHEMA.extend(
+    fan.fan_schema.extend(
         {
             cv.GenerateID(CONF_OUTPUT_ID): cv.declare_id(TuyaFan),
             cv.GenerateID(CONF_TUYA_ID): cv.use_id(Tuya),
