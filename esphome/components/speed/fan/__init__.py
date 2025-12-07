@@ -13,7 +13,7 @@ from .. import speed_ns
 
 SpeedFan = speed_ns.class_("SpeedFan", cg.Component, fan.Fan)
 
-CONFIG_SCHEMA = fan.FAN_SCHEMA.extend(
+CONFIG_SCHEMA = fan.fan_schema.extend(
     {
         cv.GenerateID(CONF_OUTPUT_ID): cv.declare_id(SpeedFan),
         cv.Required(CONF_OUTPUT): cv.use_id(output.FloatOutput),
