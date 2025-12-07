@@ -12,7 +12,7 @@ CONF_DIRECTION_DATAPOINT = "direction_datapoint"
 
 TuyaFan = tuya_ns.class_("TuyaFan", cg.Component, fan.Fan)
 
-CONFIG_SCHEMA = cv.All(
+CONFIG_SCHEMA = (
     fan.fan_schema(TuyaFan)
     .extend(
         {
@@ -23,7 +23,8 @@ CONFIG_SCHEMA = cv.All(
             cv.Optional(CONF_DIRECTION_DATAPOINT): cv.uint8_t,
             cv.Optional(CONF_SPEED_COUNT, default=3): cv.int_range(min=1, max=256),
         }
-    ).extend(cv.COMPONENT_SCHEMA),
+    )
+    .extend(cv.COMPONENT_SCHEMA),
     cv.has_at_least_one_key(CONF_SPEED_DATAPOINT, CONF_SWITCH_DATAPOINT),
 )
 
