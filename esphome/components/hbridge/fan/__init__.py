@@ -29,7 +29,7 @@ DECAY_MODE_OPTIONS = {
 BrakeAction = hbridge_ns.class_("BrakeAction", automation.Action)
 
 
-CONFIG_SCHEMA = fan.FAN_SCHEMA.extend(
+CONFIG_SCHEMA = fan.fan_schema.extend(
     {
         cv.GenerateID(CONF_ID): cv.declare_id(HBridgeFan),
         cv.Required(CONF_PIN_A): cv.use_id(output.FloatOutput),
