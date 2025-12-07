@@ -11,7 +11,7 @@ from .. import binary_ns
 
 BinaryFan = binary_ns.class_("BinaryFan", fan.Fan, cg.Component)
 
-CONFIG_SCHEMA = fan.FAN_SCHEMA.extend(
+CONFIG_SCHEMA = fan.fan_schema.extend(
     {
         cv.GenerateID(CONF_OUTPUT_ID): cv.declare_id(BinaryFan),
         cv.Required(CONF_OUTPUT): cv.use_id(output.BinaryOutput),
