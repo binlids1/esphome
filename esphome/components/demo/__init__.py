@@ -211,7 +211,7 @@ CONFIG_SCHEMA = cv.Schema(
                 },
             ],
         ): [
-            fan.FAN_SCHEMA.extend(cv.COMPONENT_SCHEMA).extend(
+            fan.fan_schema.extend(cv.COMPONENT_SCHEMA).extend(
                 {
                     cv.GenerateID(CONF_OUTPUT_ID): cv.declare_id(DemoFan),
                     cv.Required(CONF_TYPE): cv.enum(FAN_TYPES, int=True),
