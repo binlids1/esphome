@@ -14,7 +14,7 @@ from .. import copy_ns
 CopyFan = copy_ns.class_("CopyFan", fan.Fan, cg.Component)
 
 
-CONFIG_SCHEMA = fan.FAN_SCHEMA.extend(
+CONFIG_SCHEMA = fan.fan_schema.extend(
     {
         cv.GenerateID(): cv.declare_id(CopyFan),
         cv.Required(CONF_SOURCE_ID): cv.use_id(fan.Fan),
