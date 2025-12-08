@@ -12,7 +12,7 @@ CONF_DIRECTION_DATAPOINT = "direction_datapoint"
 
 TuyaFan = tuya_ns.class_("TuyaFan", cg.Component, fan.Fan)
 
-CONFIG_SCHEMA = (
+CONFIG_SCHEMA = cv.All(
     fan.fan_schema(TuyaFan)
     .extend(
         {
@@ -27,7 +27,6 @@ CONFIG_SCHEMA = (
     .extend(cv.COMPONENT_SCHEMA),
     cv.has_at_least_one_key(CONF_SPEED_DATAPOINT, CONF_SWITCH_DATAPOINT),
 )
-
 
 async def to_code(config):
     parent = await cg.get_variable(config[CONF_TUYA_ID])
